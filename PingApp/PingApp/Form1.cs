@@ -21,18 +21,31 @@ namespace PingApp
             InitializeComponent();
             
         }
+        private void Form1_Load(object sender, EventArgs e){
+            hostIP1.Focus();
+            StopIPTest.Enabled = false;
+            MessageBox.Show("Thank you for testing this app!\nDon't put an value higher than 255 in the textboxes\nThis is an known bug.\n\nIf you find any other bugs, please report them immediately to Wenzel", "Thank you");
+        }
 
         //
         // Activates the pingTimer and enabeles the "stop" button
         //        
         private void testIP_Click(object sender, EventArgs e){
             clearListBox();
+            //pingTest();
             pingTimer.Enabled = true;
             testIP.Enabled = false;
             StopIPTest.Enabled = true;
             btnClose.Enabled = false;
+            listBoxClearTimer.Enabled = true;
+            textBoxState(false);
         }
-
+        private void textBoxState(bool state){
+            hostIP1.Enabled = state;
+            hostIP2.Enabled = state;
+            hostIP3.Enabled = state;
+            hostIP4.Enabled = state;
+        }
         //
         // Stops the pingTimer and activates the "start" button
         //
@@ -43,6 +56,9 @@ namespace PingApp
             testIP.Enabled = true;
             StopIPTest.Enabled = false;
             btnClose.Enabled = true;
+            listBoxClearTimer.Enabled = false;
+            textBoxState(true);
+            GC.Collect();
 
         }
         /// <summary>
@@ -53,6 +69,7 @@ namespace PingApp
         ///     an listbox.
         /// </summary>
         private void pingTest(){
+            
             string ip =
                 hostIP1.Text + "." +
                 hostIP2.Text + "." +
@@ -67,9 +84,18 @@ namespace PingApp
             } else {
                 listBox1.Items.Add("Ping has Failed!");
                 pingTimer.Enabled = false;
+                listBoxClearTimer.Enabled = false;
                 MessageBox.Show("ERRORCODE: 01\n" + "Ping was not resolved!", "ERROR",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 resetTest();
             }
+        }
+        private void resetTest(){
+            StopIPTest.Enabled = false;
+            testIP.Enabled = true;
+            btnClose.Enabled = true;
+            hostIP1.Focus();
+            textBoxState(true);
+            GC.Collect();
         }
 
         /// <summary>
@@ -129,15 +155,7 @@ namespace PingApp
             selectLastItem();
         }
 
-        private void Form1_Load(object sender, EventArgs e){
-            hostIP1.Focus();
-            StopIPTest.Enabled = false;
-        }
-        private void resetTest(){
-            StopIPTest.Enabled = false;
-            testIP.Enabled = true;
-            btnClose.Enabled = true;
-        }
+
 
         
         private void selectLastItem(){
@@ -182,6 +200,12 @@ namespace PingApp
         {
             // TODO: Implement About page.
             MessageBox.Show("Function not implemented yet!");
+        }
+
+        private void listBoxClearTimer_Tick(object sender, EventArgs e)
+        {
+            clearListBox();
+            GC.Collect();
         }
     }
 }

@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("PingApp")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("An app to test the ping status of your desired ip.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("LiquitoX Development")]
 [assembly: AssemblyProduct("PingApp")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright ©  2016 LiquitoX")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

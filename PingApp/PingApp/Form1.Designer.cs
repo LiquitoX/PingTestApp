@@ -40,6 +40,7 @@
             this.StopIPTest = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAbout = new System.Windows.Forms.Button();
+            this.listBoxClearTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // listBox1
@@ -115,6 +116,7 @@
             // 
             // pingTimer
             // 
+            this.pingTimer.Interval = 1000;
             this.pingTimer.Tick += new System.EventHandler(this.pingTimer_Tick);
             // 
             // StopIPTest
@@ -147,11 +149,17 @@
             this.btnAbout.UseVisualStyleBackColor = true;
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
+            // listBoxClearTimer
+            // 
+            this.listBoxClearTimer.Interval = 10000;
+            this.listBoxClearTimer.Tick += new System.EventHandler(this.listBoxClearTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 270);
+            this.ControlBox = false;
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.hostIP4);
@@ -164,6 +172,7 @@
             this.Controls.Add(this.listBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PingApp";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -183,6 +192,7 @@
         private System.Windows.Forms.Button StopIPTest;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnAbout;
+        private System.Windows.Forms.Timer listBoxClearTimer;
     }
 }
 
