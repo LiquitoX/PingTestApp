@@ -21,10 +21,15 @@ namespace PingApp
             InitializeComponent();
             
         }
-        private void Form1_Load(object sender, EventArgs e){
+        private void Form1_Load(object sender, EventArgs e)
+        {
             hostIP1.Focus();
             StopIPTest.Enabled = false;
-            MessageBox.Show("Thank you for testing this app!\nDon't put an value higher than 255 in the textboxes\nThis is an known bug.\n\nIf you find any other bugs, please report them immediately to Wenzel", "Thank you");
+            MessageBox.Show("Thank you for testing this app!\n" +
+                "Don't put an value higher than 255 in the textboxes\n" +
+                "This is an known bug.\n\n" +
+                "If you find any other bugs, please report them immediately to Wenzel\n" +
+                "https://github.com/LiquitoX/PingTestApp/issues", "Thank you");
         }
 
         //
