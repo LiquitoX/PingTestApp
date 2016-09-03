@@ -46,16 +46,16 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 67);
+            this.listBox1.Location = new System.Drawing.Point(15, 67);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(284, 173);
+            this.listBox1.Size = new System.Drawing.Size(280, 173);
             this.listBox1.TabIndex = 999999;
             // 
             // testIP
             // 
-            this.testIP.Location = new System.Drawing.Point(12, 32);
+            this.testIP.Location = new System.Drawing.Point(15, 32);
             this.testIP.Name = "testIP";
-            this.testIP.Size = new System.Drawing.Size(122, 23);
+            this.testIP.Size = new System.Drawing.Size(125, 23);
             this.testIP.TabIndex = 5;
             this.testIP.Text = "Start";
             this.testIP.UseVisualStyleBackColor = true;
@@ -72,7 +72,7 @@
             // 
             // hostIP1
             // 
-            this.hostIP1.Location = new System.Drawing.Point(90, 6);
+            this.hostIP1.Location = new System.Drawing.Point(89, 6);
             this.hostIP1.MaxLength = 3;
             this.hostIP1.Name = "hostIP1";
             this.hostIP1.Size = new System.Drawing.Size(47, 20);
@@ -83,7 +83,7 @@
             // 
             // hostIP2
             // 
-            this.hostIP2.Location = new System.Drawing.Point(144, 6);
+            this.hostIP2.Location = new System.Drawing.Point(143, 6);
             this.hostIP2.MaxLength = 3;
             this.hostIP2.Name = "hostIP2";
             this.hostIP2.Size = new System.Drawing.Size(47, 20);
@@ -94,7 +94,7 @@
             // 
             // hostIP3
             // 
-            this.hostIP3.Location = new System.Drawing.Point(196, 6);
+            this.hostIP3.Location = new System.Drawing.Point(195, 6);
             this.hostIP3.MaxLength = 3;
             this.hostIP3.Name = "hostIP3";
             this.hostIP3.Size = new System.Drawing.Size(47, 20);
@@ -105,7 +105,7 @@
             // 
             // hostIP4
             // 
-            this.hostIP4.Location = new System.Drawing.Point(249, 6);
+            this.hostIP4.Location = new System.Drawing.Point(248, 6);
             this.hostIP4.MaxLength = 3;
             this.hostIP4.Name = "hostIP4";
             this.hostIP4.Size = new System.Drawing.Size(47, 20);
@@ -121,9 +121,9 @@
             // 
             // StopIPTest
             // 
-            this.StopIPTest.Location = new System.Drawing.Point(174, 32);
+            this.StopIPTest.Location = new System.Drawing.Point(170, 32);
             this.StopIPTest.Name = "StopIPTest";
-            this.StopIPTest.Size = new System.Drawing.Size(122, 23);
+            this.StopIPTest.Size = new System.Drawing.Size(125, 23);
             this.StopIPTest.TabIndex = 6;
             this.StopIPTest.Text = "Stop Testing";
             this.StopIPTest.UseVisualStyleBackColor = true;
@@ -131,9 +131,9 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(174, 243);
+            this.btnClose.Location = new System.Drawing.Point(170, 243);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(122, 23);
+            this.btnClose.Size = new System.Drawing.Size(125, 23);
             this.btnClose.TabIndex = 8;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -141,9 +141,9 @@
             // 
             // btnAbout
             // 
-            this.btnAbout.Location = new System.Drawing.Point(12, 243);
+            this.btnAbout.Location = new System.Drawing.Point(15, 243);
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(122, 23);
+            this.btnAbout.Size = new System.Drawing.Size(125, 23);
             this.btnAbout.TabIndex = 7;
             this.btnAbout.Text = "About";
             this.btnAbout.UseVisualStyleBackColor = true;
