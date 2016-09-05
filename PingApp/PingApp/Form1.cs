@@ -14,19 +14,26 @@ using System.Net;
 
 namespace PingApp
 {
-    public partial class Form1 : Form
-    {
+    public partial class Form1 : Form{
+        //  Declarations
         private int num = 1;
 
+        //  Application
         public Form1()
         {
             InitializeComponent();
 
         }
-        public void Form1_Load(object sender, EventArgs e){
+
+        /// <summary>
+        /// Loads the form with the focus on the 1st inputbox.
+        /// </summary>
+        private void Form1_Load(object sender, EventArgs e){
             
             hostIP1.Focus();
             StopIPTest.Enabled = false;
+
+            //  MessageBox needs to be deleted after 1st release
             MessageBox.Show("Thank you for testing this app!\n" +
                 "Don't put an value higher than 255 in the textboxes\n" +
                 "This is an known bug.\n\n" +
@@ -35,26 +42,38 @@ namespace PingApp
         }
 
         //
-        // Activates the pingTimer and enabeles the "stop" button
+        //  Activates the pingTimer and enabeles the "stop" button
+        //  This "Click" event will also preform some checks.
         //        
         private void testIP_Click(object sender, EventArgs e){
             clearListBox();
-            //pingTest();
             pingTimer.Enabled = true;
             testIP.Enabled = false;
             StopIPTest.Enabled = true;
             btnClose.Enabled = false;
             listBoxClearTimer.Enabled = true;
             textBoxState(false);
+            checkIntervals();
+            pingTimer.Interval = Convert.ToInt32(numPingInterval.Value*1000);
+            listBoxClearTimer.Interval = Convert.ToInt32(numClearInterval.Value*1000);
+        }
+
+        /// <summary>
+        /// Checks if numPintInterval and numClearInterval are above 0.
+        /// </summary>
+        private void checkIntervals(){
             if (numPingInterval.Value <= 0){
                 numPingInterval.Value = 1;
             }
             if (numClearInterval.Value <= 0){
                 numClearInterval.Value = 1;
             }
-            pingTimer.Interval = Convert.ToInt32(numPingInterval.Value*1000);
-            listBoxClearTimer.Interval = Convert.ToInt32(numClearInterval.Value*1000);
         }
+
+        /// <summary>
+        /// Sets the state of all fields with input.
+        /// </summary>
+        /// <param name="state"></param>
         private void textBoxState(bool state){
             hostIP1.Enabled = state;
             hostIP2.Enabled = state;
@@ -228,6 +247,10 @@ namespace PingApp
         {
             clearListBox();
             GC.Collect();
+        }
+
+        private void linkIssue_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e){
+            Process.Start("https://github.com/LiquitoX/PingTestApp/issues");
         }
     }
 }
