@@ -127,6 +127,10 @@ namespace PingApp
                 resetTest();
             }
         }
+
+        /// <summary>
+        /// Resets the Pingtest to its "start" parameters
+        /// </summary>
         private void resetTest(){
             StopIPTest.Enabled = false;
             testIP.Enabled = true;
@@ -204,25 +208,26 @@ namespace PingApp
         }
         private void validateText(int Number)
         {
+            string ErrNumber = "Please enter only numbers!";
             if (Number == 1){
                 if (System.Text.RegularExpressions.Regex.IsMatch(hostIP1.Text, "[^0-9]")){
                     hostIP1.Text = "";
-                    MessageBox.Show("Please enter only numbers.");
+                    MessageBox.Show(ErrNumber);
                     
                 }
             } else if (Number == 2){
                 if (System.Text.RegularExpressions.Regex.IsMatch(hostIP2.Text, "[^0-9]")){ 
-                    MessageBox.Show("Please enter only numbers.");
+                    MessageBox.Show(ErrNumber);
                     hostIP2.Text = "";
                 }
             } else if (Number == 3){
                 if (System.Text.RegularExpressions.Regex.IsMatch(hostIP3.Text, "[^0-9]")){
-                    MessageBox.Show("Please enter only numbers.");
+                    MessageBox.Show(ErrNumber);
                     hostIP3.Text = "";
                 }
             } else if (Number == 4) {
                 if (System.Text.RegularExpressions.Regex.IsMatch(hostIP4.Text, "[^0-9]")){ 
-                    MessageBox.Show("Please enter only numbers.");
+                    MessageBox.Show(ErrNumber);
                     hostIP4.Text = "";
                 }
             }
@@ -234,7 +239,7 @@ namespace PingApp
         /// </summary>
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            end();
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
@@ -251,6 +256,13 @@ namespace PingApp
 
         private void linkIssue_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e){
             Process.Start("https://github.com/LiquitoX/PingTestApp/issues");
+        }
+
+        /// <summary>
+        /// Ends the Application.
+        /// </summary>
+        private void end(){
+            Application.Exit();
         }
     }
 }
