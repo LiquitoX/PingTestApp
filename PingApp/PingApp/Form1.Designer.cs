@@ -41,19 +41,28 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAbout = new System.Windows.Forms.Button();
             this.listBoxClearTimer = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.numPingInterval = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.numClearInterval = new System.Windows.Forms.NumericUpDown();
+            this.numDel = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.numPingInterval)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numClearInterval)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(15, 67);
+            this.listBox1.Location = new System.Drawing.Point(11, 113);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(280, 173);
+            this.listBox1.Size = new System.Drawing.Size(280, 134);
             this.listBox1.TabIndex = 999999;
             // 
             // testIP
             // 
-            this.testIP.Location = new System.Drawing.Point(15, 32);
+            this.testIP.Location = new System.Drawing.Point(11, 32);
             this.testIP.Name = "testIP";
             this.testIP.Size = new System.Drawing.Size(125, 23);
             this.testIP.TabIndex = 5;
@@ -131,7 +140,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(170, 243);
+            this.btnClose.Location = new System.Drawing.Point(166, 276);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(125, 23);
             this.btnClose.TabIndex = 8;
@@ -141,7 +150,7 @@
             // 
             // btnAbout
             // 
-            this.btnAbout.Location = new System.Drawing.Point(15, 243);
+            this.btnAbout.Location = new System.Drawing.Point(11, 276);
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Size = new System.Drawing.Size(125, 23);
             this.btnAbout.TabIndex = 7;
@@ -154,18 +163,107 @@
             this.listBoxClearTimer.Interval = 10000;
             this.listBoxClearTimer.Tick += new System.EventHandler(this.listBoxClearTimer_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Ping Interval:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // numPingInterval
+            // 
+            this.numPingInterval.Location = new System.Drawing.Point(89, 61);
+            this.numPingInterval.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.numPingInterval.Name = "numPingInterval";
+            this.numPingInterval.Size = new System.Drawing.Size(150, 20);
+            this.numPingInterval.TabIndex = 1000000;
+            this.numPingInterval.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(245, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Seconds";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 89);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Clear Interval:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(245, 89);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Seconds";
+            // 
+            // numClearInterval
+            // 
+            this.numClearInterval.Location = new System.Drawing.Point(89, 87);
+            this.numClearInterval.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.numClearInterval.Name = "numClearInterval";
+            this.numClearInterval.Size = new System.Drawing.Size(150, 20);
+            this.numClearInterval.TabIndex = 1000000;
+            this.numClearInterval.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // numDel
+            // 
+            this.numDel.AutoSize = true;
+            this.numDel.Location = new System.Drawing.Point(11, 253);
+            this.numDel.Name = "numDel";
+            this.numDel.Size = new System.Drawing.Size(144, 17);
+            this.numDel.TabIndex = 1000002;
+            this.numDel.Text = "Restart count with clear?";
+            this.numDel.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 270);
+            this.ClientSize = new System.Drawing.Size(307, 307);
             this.ControlBox = false;
+            this.Controls.Add(this.numDel);
+            this.Controls.Add(this.numClearInterval);
+            this.Controls.Add(this.numPingInterval);
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.hostIP4);
             this.Controls.Add(this.hostIP3);
             this.Controls.Add(this.hostIP2);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.hostIP1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.StopIPTest);
             this.Controls.Add(this.testIP);
@@ -175,6 +273,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PingApp";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numPingInterval)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numClearInterval)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,6 +293,13 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnAbout;
         private System.Windows.Forms.Timer listBoxClearTimer;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown numPingInterval;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown numClearInterval;
+        private System.Windows.Forms.CheckBox numDel;
     }
 }
 

@@ -16,13 +16,15 @@ namespace PingApp
 {
     public partial class Form1 : Form
     {
+        private int num = 1;
+
         public Form1()
         {
             InitializeComponent();
-            
+
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
+        public void Form1_Load(object sender, EventArgs e){
+            
             hostIP1.Focus();
             StopIPTest.Enabled = false;
             MessageBox.Show("Thank you for testing this app!\n" +
@@ -44,12 +46,22 @@ namespace PingApp
             btnClose.Enabled = false;
             listBoxClearTimer.Enabled = true;
             textBoxState(false);
+            if (numPingInterval.Value <= 0){
+                numPingInterval.Value = 1;
+            }
+            if (numClearInterval.Value <= 0){
+                numClearInterval.Value = 1;
+            }
+            pingTimer.Interval = Convert.ToInt32(numPingInterval.Value*1000);
+            listBoxClearTimer.Interval = Convert.ToInt32(numClearInterval.Value*1000);
         }
         private void textBoxState(bool state){
             hostIP1.Enabled = state;
             hostIP2.Enabled = state;
             hostIP3.Enabled = state;
             hostIP4.Enabled = state;
+            numPingInterval.Enabled = state;
+            numClearInterval.Enabled = state;
         }
         //
         // Stops the pingTimer and activates the "start" button
@@ -75,6 +87,7 @@ namespace PingApp
         /// </summary>
         private void pingTest(){
             
+            
             string ip =
                 hostIP1.Text + "." +
                 hostIP2.Text + "." +
@@ -85,7 +98,8 @@ namespace PingApp
             PingReply pingStatus = ping.Send(IPAddress.Parse(ip));
 
             if (pingStatus.Status == IPStatus.Success){
-                listBox1.Items.Add("Ping to " + ip + " was successful");
+                listBox1.Items.Add(num + ") Ping to " + ip + " was successful");
+                num++;
             } else {
                 listBox1.Items.Add("Ping has Failed!");
                 pingTimer.Enabled = false;
@@ -104,10 +118,13 @@ namespace PingApp
         }
 
         /// <summary>
-        /// Clears all the listbox items.
+        /// Clears all the listbox items. And resets the global num value if numDel is checked.
         /// </summary>
         private void clearListBox(){
             listBox1.Items.Clear();
+            if (numDel.Checked){
+                num = 1;
+            }
         }
         
         /// <summary>
