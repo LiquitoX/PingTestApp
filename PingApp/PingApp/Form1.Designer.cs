@@ -48,6 +48,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.numClearInterval = new System.Windows.Forms.NumericUpDown();
             this.numDel = new System.Windows.Forms.CheckBox();
+            this.linkIssue = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.numPingInterval)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numClearInterval)).BeginInit();
             this.SuspendLayout();
@@ -140,7 +141,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(166, 276);
+            this.btnClose.Location = new System.Drawing.Point(166, 270);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(125, 23);
             this.btnClose.TabIndex = 8;
@@ -150,7 +151,7 @@
             // 
             // btnAbout
             // 
-            this.btnAbout.Location = new System.Drawing.Point(11, 276);
+            this.btnAbout.Location = new System.Drawing.Point(11, 270);
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Size = new System.Drawing.Size(125, 23);
             this.btnAbout.TabIndex = 7;
@@ -245,12 +246,24 @@
             this.numDel.Text = "Restart count with clear?";
             this.numDel.UseVisualStyleBackColor = true;
             // 
+            // linkIssue
+            // 
+            this.linkIssue.AutoSize = true;
+            this.linkIssue.Location = new System.Drawing.Point(225, 254);
+            this.linkIssue.Name = "linkIssue";
+            this.linkIssue.Size = new System.Drawing.Size(66, 13);
+            this.linkIssue.TabIndex = 1000003;
+            this.linkIssue.TabStop = true;
+            this.linkIssue.Text = "Report issue";
+            this.linkIssue.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkIssue_LinkClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 307);
+            this.ClientSize = new System.Drawing.Size(307, 303);
             this.ControlBox = false;
+            this.Controls.Add(this.linkIssue);
             this.Controls.Add(this.numDel);
             this.Controls.Add(this.numClearInterval);
             this.Controls.Add(this.numPingInterval);
@@ -300,6 +313,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numClearInterval;
         private System.Windows.Forms.CheckBox numDel;
+        private System.Windows.Forms.LinkLabel linkIssue;
     }
 }
 
