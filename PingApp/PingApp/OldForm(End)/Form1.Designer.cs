@@ -176,12 +176,23 @@
             // 
             // numPingInterval
             // 
+            this.numPingInterval.DecimalPlaces = 1;
+            this.numPingInterval.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.numPingInterval.Location = new System.Drawing.Point(89, 61);
             this.numPingInterval.Maximum = new decimal(new int[] {
             60,
             0,
             0,
             0});
+            this.numPingInterval.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.numPingInterval.Name = "numPingInterval";
             this.numPingInterval.Size = new System.Drawing.Size(150, 20);
             this.numPingInterval.TabIndex = 1000000;
@@ -189,7 +200,7 @@
             1,
             0,
             0,
-            0});
+            131072});
             // 
             // label2
             // 
