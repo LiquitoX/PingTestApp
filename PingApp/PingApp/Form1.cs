@@ -32,13 +32,13 @@ namespace PingApp
             
             hostIP1.Focus();
             StopIPTest.Enabled = false;
+
             //  MessageBox needs to be deleted after 1st release
-           /* MessageBox.Show("Thank you for testing this app!\n" +
+            MessageBox.Show("Thank you for testing this app!\n" +
                 "Don't put an value higher than 255 in the textboxes\n" +
                 "This is an known bug.\n\n" +
                 "If you find any other bugs, please report them immediately to Wenzel\n" +
                 "https://github.com/LiquitoX/PingTestApp/issues", "Thank you");
-            */
         }
 
         //
@@ -244,8 +244,8 @@ namespace PingApp
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            Form frm = new frmPingApp();
-            frm.Show(); 
+            // TODO: Implement About page.
+            MessageBox.Show("Function not implemented yet!");
         }
 
         private void listBoxClearTimer_Tick(object sender, EventArgs e)
