@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
+//using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
 using System.Threading;
 using System.Net;
 
-namespace PingApp
-{
+namespace PingApp{ 
     public partial class Form1 : Form{
         //  Declarations
         private int num = 1;

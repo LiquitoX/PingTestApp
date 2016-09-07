@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
+//using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+
+//Version 0.1.0.0
+//.NET Framework 3.0
 
 namespace PingApp{
     public partial class frmPingApp : Form{
