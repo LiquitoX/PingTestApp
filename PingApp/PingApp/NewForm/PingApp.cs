@@ -163,7 +163,6 @@ namespace PingApp{
         }
 
         private void btnStartTest_Click(object sender, EventArgs e){
-            //pingTest();
             setState(false);
             setTimerState(true);
             btnStartTest.Enabled = false;
