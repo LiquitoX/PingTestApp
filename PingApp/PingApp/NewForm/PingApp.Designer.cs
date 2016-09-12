@@ -88,6 +88,7 @@
             0,
             0,
             0});
+            this.numIP1.Enter += new System.EventHandler(this.numIP1_Enter);
             // 
             // numIP2
             // 
@@ -105,6 +106,7 @@
             0,
             0,
             0});
+            this.numIP2.Enter += new System.EventHandler(this.numIP2_Enter);
             // 
             // numIP3
             // 
@@ -122,6 +124,7 @@
             0,
             0,
             0});
+            this.numIP3.Enter += new System.EventHandler(this.numIP3_Enter);
             // 
             // numIP4
             // 
@@ -144,6 +147,7 @@
             0,
             0,
             0});
+            this.numIP4.Enter += new System.EventHandler(this.numIP4_Enter);
             // 
             // lblPingInterval
             // 
@@ -175,6 +179,7 @@
             0,
             0,
             0});
+            this.numPingInterval.Enter += new System.EventHandler(this.numPingInterval_Enter);
             // 
             // lblSeconds1
             // 
@@ -206,6 +211,7 @@
             0,
             0,
             0});
+            this.numClearInterval.Enter += new System.EventHandler(this.numClearInterval_Enter);
             // 
             // lblClearInterval
             // 
