@@ -1,0 +1,43 @@
+﻿[0.1.0.2.Dev] (12-09-16)
+- Added:	ChangeLog.
+- Added:	Message when resetting values.
+- Added:	Feature that selects the value of the NumericUpDown boxes in the 
+			app for more convenient input and more faulttolerance.
+- Added:	About message.
+- Changed:	Improved the readability of some code, while i found it hard to 
+			see what did what.
+- Changed:	The numbernotation within the list, it is now "1.)" etc. instead 
+			of "1)".
+- Changed:	When you now stop pinging, you automatically select the first 
+			inputbox.
+- Changed:	"Buildversion:" to "Version:" when you click on "About". 
+
+[0.1.0.2.TODO]
+- Add message in the list: "Test started by user!".
+- Fixate the windowsize.
+
+[0.1.0.1] (12-09-16)
+- Created first workable app.
+
+[NOTES]
+VersionNumber.<name> See below
+- Dev: Internal build. Not for external use.
+
+- TODO: This should explain itself.
+
+Version explanation for this app:
+- Major build should ONLY be incremented when changing from 
+	the framework, OS version or when the app is completely
+	redesigned.
+- Minor build number should only be incremented when there
+	are features added.
+	Reverts to 0 with every Major increment.
+- Revision build number should only change when you make a 
+	small fix.
+	Reverts to 0 with every Minor increment.
+- Build number NEEDS to be incremented every build.
+- Example: Version 1.9.2.123 means
+	- 1 Major build.
+	- 9 Added features or big changes.
+	- 2 Patches for bugs.
+	- 123 Total builds in the entire lifetime of the app.
