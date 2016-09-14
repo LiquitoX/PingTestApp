@@ -93,24 +93,15 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OldForm%28End%29\Form1.cs">
+    <Compile Include="PingAppMainForm\PingApp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OldForm%28End%29\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NewForm\PingApp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewForm\PingApp.Designer.cs">
+    <Compile Include="PingAppMainForm\PingApp.Designer.cs">
       <DependentUpon>PingApp.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="AssemblyInfo.cs" />
-    <EmbeddedResource Include="OldForm%28End%29\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewForm\PingApp.resx">
+    <EmbeddedResource Include="PingAppMainForm\PingApp.resx">
       <DependentUpon>PingApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OtherFiles\Resources.resx">
