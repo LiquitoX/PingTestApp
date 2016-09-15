@@ -1,4 +1,24 @@
-﻿[0.1.0.4.Dev] (15-09-16)
+﻿[0.1.0.5.Dev] (15-09-16)
+- Added:	#1 (0.1.0.2.TODO): Message "Test started by user!" will now
+			show when starting the test.
+- Added:	Funtion to get the date/time in the following format:
+			"hh:mm:ss".
+- Changed:	selectLastItem function changed so it can be used with other
+			listboxes.
+- Added:	ToolTip control, for tooltips on the buttons/controls.
+- Fixed:	Fixated the windowsize #2
+- Removed:	The checkbox for resetting the count when clearing the list.
+- Removed:	Code for private int num and controls associated with that.
+- Fixed:	Bug that didn't go to the last item in the listbox after 
+			stopping the test.
+- Fixed:	Small design issue. (start and stop test buttons weren't 
+			aligned properly)
+- Added:	getTime function when the user starts/stops the test. 
+- Changed:	Errormessage will now show the time of failure.
+- Changed:	Errormessage in the list will now show the failed ip
+			instead of only "Ping has failed!".
+
+[0.1.0.4.Dev] (15-09-16)
 - Added:	Settings page. Added for future development.
 - Added:	Function to never clean the list while pinging.
 			Clear Interval can now be set to 0.
@@ -25,8 +45,8 @@
 - Changed:	"Buildversion:" to "Version:" when you click on "About". 
 
 [0.1.0.2.TODO]
-- Add message in the list: "Test started by user!".
-- Fixate the windowsize.
+- Add message in the list: "Test started by user!".		#1
+- Fixate the windowsize.								#2
 
 [0.1.0.1] (12-09-16)
 - Created first workable app.

@@ -47,10 +47,10 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAbout = new System.Windows.Forms.Button();
             this.btnStartTest = new System.Windows.Forms.Button();
-            this.chkClear = new System.Windows.Forms.CheckBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnStopTest = new System.Windows.Forms.Button();
             this.btnSaveList = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numIP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIP3)).BeginInit();
@@ -284,16 +284,6 @@
             this.btnStartTest.UseVisualStyleBackColor = true;
             this.btnStartTest.Click += new System.EventHandler(this.btnStartTest_Click);
             // 
-            // chkClear
-            // 
-            this.chkClear.AutoSize = true;
-            this.chkClear.Location = new System.Drawing.Point(12, 230);
-            this.chkClear.Name = "chkClear";
-            this.chkClear.Size = new System.Drawing.Size(140, 17);
-            this.chkClear.TabIndex = 7;
-            this.chkClear.Text = "Reset count after clear?";
-            this.chkClear.UseVisualStyleBackColor = true;
-            // 
             // btnReset
             // 
             this.btnReset.Location = new System.Drawing.Point(12, 282);
@@ -306,7 +296,7 @@
             // 
             // btnStopTest
             // 
-            this.btnStopTest.Location = new System.Drawing.Point(179, 250);
+            this.btnStopTest.Location = new System.Drawing.Point(179, 253);
             this.btnStopTest.Name = "btnStopTest";
             this.btnStopTest.Size = new System.Drawing.Size(126, 23);
             this.btnStopTest.TabIndex = 91;
@@ -324,6 +314,10 @@
             this.btnSaveList.UseVisualStyleBackColor = true;
             this.btnSaveList.Click += new System.EventHandler(this.btnSaveList_Click);
             // 
+            // toolTip
+            // 
+            this.toolTip.IsBalloon = true;
+            // 
             // frmPingApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,7 +327,6 @@
             this.Controls.Add(this.btnSaveList);
             this.Controls.Add(this.btnStopTest);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.chkClear);
             this.Controls.Add(this.btnStartTest);
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.btnClose);
@@ -350,6 +343,8 @@
             this.Controls.Add(this.numPingInterval);
             this.Controls.Add(this.numIP1);
             this.Controls.Add(this.lblIPAddress);
+            this.MaximumSize = new System.Drawing.Size(333, 378);
+            this.MinimumSize = new System.Drawing.Size(333, 378);
             this.Name = "frmPingApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PingApp";
@@ -385,9 +380,9 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnAbout;
         private System.Windows.Forms.Button btnStartTest;
-        private System.Windows.Forms.CheckBox chkClear;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnStopTest;
         private System.Windows.Forms.Button btnSaveList;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
