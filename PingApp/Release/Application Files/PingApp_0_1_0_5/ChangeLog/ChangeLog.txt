@@ -1,8 +1,4 @@
-﻿[0.1.0.6.Dev] (15-09-16)
-- Changed:	When the pinging fails, the user will be able to save the log.
-- Changed:	Saving the listbox will now show the time when it was saved.
-
-[0.1.0.5.Dev] (15-09-16)
+﻿[0.1.0.5.Dev] (15-09-16)
 - Added:	#1 (0.1.0.2.TODO): Message "Test started by user!" will now
 			show when starting the test.
 - Added:	Funtion to get the date/time in the following format:

@@ -10,13 +10,13 @@ using System.Windows.Forms;
 using System.Net.NetworkInformation;
 using System.Diagnostics;
 using System.Net;
+using System.IO;
 
 //Version 0.2.0.1
 //.NET Framework 3.0
 
 namespace PingApp { 
     public partial class frmPingApp : Form{
-        private int num = 1;
 
         public frmPingApp(){
             InitializeComponent();
@@ -25,8 +25,6 @@ namespace PingApp {
         private void PingApp_Load(object sender, EventArgs e){
             setValues();
             btnStopTest.Enabled = false;
-
-
         }
 
         // FUNCTIONS ARE DEFINED BEFORE ALL USER INTERACTIONS!
@@ -41,7 +39,6 @@ namespace PingApp {
             numIP4.Value = 1;
             numPingInterval.Value = 1;
             numClearInterval.Value = 10;
-            chkClear.Checked = false;
             clearListBox();
         }
 
@@ -78,13 +75,15 @@ namespace PingApp {
             numIP4.Enabled = state;
             numPingInterval.Enabled = state;
             numClearInterval.Enabled = state;
-            chkClear.Enabled = state;
             btnReset.Enabled = state;
             btnClose.Enabled = state;
+            btnSaveList.Enabled = state;
         }
 
         private void setTimerState(bool state){
-            tmrClearInterval.Enabled = state;
+            if (numClearInterval.Value !=0){
+                tmrClearInterval.Enabled = state;
+            }
             tmrPingInterval.Enabled = state;
         }
 
@@ -98,31 +97,57 @@ namespace PingApp {
                 Convert.ToInt32(numIP3.Value),
                 Convert.ToInt32(numIP4.Value)
             );
-            // Create the ping Object.
             Ping ping = new Ping();
-
-            // Ping the desired IPAddress.
             PingReply pingStatus = ping.Send(IPAddress.Parse(ip));
             if (pingStatus.Status == IPStatus.Success){
-                listPing.Items.Add(num + ".) Ping to " + ip + " was successful");
-                num++;
+                listPing.Items.Add(getTime() + ") Ping to " + ip + " was successful");
             }else{
-                num = 1;
-                listPing.Items.Add("Ping has Failed!");
+                listPing.Items.Add(getTime() + ") Ping to " + ip + " has Failed!");
                 tmrPingInterval.Enabled = false;
                 btnStopTest.Enabled = false;
                 btnStartTest.Enabled = true;
                 setTimerState(false);
-                MessageBox.Show("ERRORCODE: 01\n" + "Ping was not resolved!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(getTime() + "\nERRORCODE: 01\n" + "Ping was not resolved!\n\n" +
+                    "You will be prompted to save a log after clicking 'OK'.", 
+                    "ERROR", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
                 setState(true);
+                savePingList(listPing);
             }
         }
 
         /// <summary>
-        /// Selects the last item in the List
+        /// Selects the last item in the given List
         /// </summary>
-        private void selectLastItem(){
-            listPing.SelectedIndex = listPing.Items.Count - 1;
+        /// <param name="list"></param>
+        private void selectLastItem(ListBox list){
+            list.SelectedIndex = list.Items.Count - 1;
+        }
+
+        /// <summary>
+        /// This function saves the given listbox to an file.
+        /// </summary>
+        /// <param name="listToSave"></param>
+        private void savePingList(ListBox listToSave) {
+            listToSave.Items.Insert(0,"FILE SAVED ON: " + getTime());
+            var saveFile = new SaveFileDialog();
+            saveFile.Filter = "Text (*.txt)|*.txt";
+            if (saveFile.ShowDialog() == System.Windows.Forms.DialogResult.OK){
+                using (var sw = new StreamWriter(saveFile.FileName, false))
+                    foreach (var item in listToSave.Items)
+                        sw.Write(item.ToString() + Environment.NewLine);
+                MessageBox.Show("File has been saved.");
+            }
+        }
+
+        /// <summary>
+        /// This function will return the current time in the following format:
+        /// HH:mm:ss
+        /// </summary>
+        /// <returns></returns>
+        private string getTime() {
+            string timeString = DateTime.Now.ToString("HH:mm:ss");
+            return timeString;
         }
         // END DEFINING FUNCTIONS
 
@@ -138,7 +163,8 @@ namespace PingApp {
         private void btnAbout_Click(object sender, EventArgs e){
             // TODO: Add about form.
             // MessageBox.Show("Function not implemented yet!", "TODO", MessageBoxButtons.OK);
-            MessageBox.Show(string.Format("This app was made by:\nLiquitoX Development\nVersion: {0}", this.ProductVersion));
+            MessageBox.Show(string.Format("This app was made by:\nLiquitoX Development\nVersion: {0}", 
+                this.ProductVersion));
         }
 
         private void btnTest_Click(object sender, EventArgs e){
@@ -160,8 +186,11 @@ namespace PingApp {
             btnStartTest.Enabled = false;
             btnStopTest.Enabled = true;
             tmrPingInterval.Interval = Convert.ToInt32(numPingInterval.Value) * 1000;
-            tmrClearInterval.Interval = Convert.ToInt32(numClearInterval.Value) * 1000;
+            if (numClearInterval.Value != 0){
+                tmrClearInterval.Interval = Convert.ToInt32(numClearInterval.Value) * 1000;
+            }
             clearListBox();
+            listPing.Items.Add(getTime() +") Test started by user!");
         }
 
         private void btnStopTest_Click(object sender, EventArgs e){
@@ -169,21 +198,18 @@ namespace PingApp {
             setTimerState(false);
             btnStartTest.Enabled = true;
             btnStopTest.Enabled = false;
-            listPing.Items.Add("Test stopped by user!");
+            listPing.Items.Add(getTime() + ") Test stopped by user!");
             numIP1.Focus();
+            selectLastItem(listPing);
         }
 
         private void tmrPingInterval_Tick(object sender, EventArgs e){
             pingTest();
-            selectLastItem();
-
+            selectLastItem(listPing);
         }
 
         private void tmrClearInterval_Tick(object sender, EventArgs e){
             clearListBox();
-            if (chkClear.Checked){
-                num = 1;
-            }
             GC.Collect();
         }
 
@@ -210,7 +236,11 @@ namespace PingApp {
 
         private void numClearInterval_Enter(object sender, EventArgs e){
             numClearInterval.Select(0, numClearInterval.Text.Length);
+        }// End SelectAll
+
+        private void btnSaveList_Click(object sender, EventArgs e){
+            savePingList(listPing);
         }
-        // End SelectAll
+        
     }
 }
