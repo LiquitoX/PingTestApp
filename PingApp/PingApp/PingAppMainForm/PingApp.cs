@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Net.NetworkInformation;
 using System.Diagnostics;
 using System.Net;
+using System.IO;
 
 //Version 0.2.0.1
 //.NET Framework 3.0
@@ -81,6 +82,7 @@ namespace PingApp {
             chkClear.Enabled = state;
             btnReset.Enabled = state;
             btnClose.Enabled = state;
+            btnSaveList.Enabled = state;
         }
 
         private void setTimerState(bool state){
@@ -128,6 +130,21 @@ namespace PingApp {
         private void selectLastItem(){
             listPing.SelectedIndex = listPing.Items.Count - 1;
         }
+
+        /// <summary>
+        /// This function saves the given listbox to an file.
+        /// </summary>
+        /// <param name="listToSave"></param>
+        private void savePingList(ListBox listToSave) {
+            var saveFile = new SaveFileDialog();
+            saveFile.Filter = "Text (*.txt)|*.txt";
+            if (saveFile.ShowDialog() == System.Windows.Forms.DialogResult.OK){
+                using (var sw = new StreamWriter(saveFile.FileName, false))
+                    foreach (var item in listToSave.Items)
+                        sw.Write(item.ToString() + Environment.NewLine);
+                MessageBox.Show("Success");
+            }
+        }
         // END DEFINING FUNCTIONS
 
 
@@ -169,6 +186,7 @@ namespace PingApp {
                 tmrClearInterval.Interval = Convert.ToInt32(numClearInterval.Value) * 1000;
             }             
             clearListBox();
+
         }
 
         private void btnStopTest_Click(object sender, EventArgs e){
@@ -218,6 +236,10 @@ namespace PingApp {
 
         private void numClearInterval_Enter(object sender, EventArgs e){
             numClearInterval.Select(0, numClearInterval.Text.Length);
+        }
+
+        private void btnSaveList_Click(object sender, EventArgs e){
+            savePingList(listPing);
         }
         // End SelectAll
     }

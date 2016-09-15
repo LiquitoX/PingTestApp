@@ -50,6 +50,7 @@
             this.chkClear = new System.Windows.Forms.CheckBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnStopTest = new System.Windows.Forms.Button();
+            this.btnSaveList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numIP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIP3)).BeginInit();
@@ -258,7 +259,7 @@
             this.btnClose.Location = new System.Drawing.Point(179, 311);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(126, 23);
-            this.btnClose.TabIndex = 94;
+            this.btnClose.TabIndex = 95;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -268,7 +269,7 @@
             this.btnAbout.Location = new System.Drawing.Point(12, 311);
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Size = new System.Drawing.Size(126, 23);
-            this.btnAbout.TabIndex = 93;
+            this.btnAbout.TabIndex = 94;
             this.btnAbout.Text = "About";
             this.btnAbout.UseVisualStyleBackColor = true;
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
@@ -277,7 +278,7 @@
             // 
             this.btnStartTest.Location = new System.Drawing.Point(12, 253);
             this.btnStartTest.Name = "btnStartTest";
-            this.btnStartTest.Size = new System.Drawing.Size(293, 23);
+            this.btnStartTest.Size = new System.Drawing.Size(126, 23);
             this.btnStartTest.TabIndex = 90;
             this.btnStartTest.Text = "Start test";
             this.btnStartTest.UseVisualStyleBackColor = true;
@@ -305,7 +306,7 @@
             // 
             // btnStopTest
             // 
-            this.btnStopTest.Location = new System.Drawing.Point(179, 282);
+            this.btnStopTest.Location = new System.Drawing.Point(179, 250);
             this.btnStopTest.Name = "btnStopTest";
             this.btnStopTest.Size = new System.Drawing.Size(126, 23);
             this.btnStopTest.TabIndex = 91;
@@ -313,12 +314,23 @@
             this.btnStopTest.UseVisualStyleBackColor = true;
             this.btnStopTest.Click += new System.EventHandler(this.btnStopTest_Click);
             // 
+            // btnSaveList
+            // 
+            this.btnSaveList.Location = new System.Drawing.Point(179, 282);
+            this.btnSaveList.Name = "btnSaveList";
+            this.btnSaveList.Size = new System.Drawing.Size(126, 23);
+            this.btnSaveList.TabIndex = 93;
+            this.btnSaveList.Text = "Save test to file";
+            this.btnSaveList.UseVisualStyleBackColor = true;
+            this.btnSaveList.Click += new System.EventHandler(this.btnSaveList_Click);
+            // 
             // frmPingApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(317, 340);
             this.ControlBox = false;
+            this.Controls.Add(this.btnSaveList);
             this.Controls.Add(this.btnStopTest);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.chkClear);
@@ -376,5 +388,6 @@
         private System.Windows.Forms.CheckBox chkClear;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnStopTest;
+        private System.Windows.Forms.Button btnSaveList;
     }
 }

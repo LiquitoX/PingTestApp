@@ -1,7 +1,6 @@
 ﻿[0.1.0.4.Dev] (15-09-16)
 - Added:	Settings page. Added for future development.
 - Added:	Function to never clean the list while pinging.
-			Clear Interval can now be set to 0.
 - Added:	Function to save the preformed tests to a textfile.
 - Added:	Savebutton.
 - Changed:	TabIndexes for the buttons and some controls.
