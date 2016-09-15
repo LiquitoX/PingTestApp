@@ -1,0 +1,75 @@
+﻿[0.1.0.5.Dev] (15-09-16)
+- Added:	#1 (0.1.0.2.TODO): Message "Test started by user!" will now
+			show when starting the test.
+- Added:	Funtion to get the date/time in the following format:
+			"hh:mm:ss".
+- Changed:	selectLastItem function changed so it can be used with other
+			listboxes.
+- Added:	ToolTip control, for tooltips on the buttons/controls.
+- Fixed:	Fixated the windowsize #2
+- Removed:	The checkbox for resetting the count when clearing the list.
+- Removed:	Code for private int num and controls associated with that.
+- Fixed:	Bug that didn't go to the last item in the listbox after 
+			stopping the test.
+- Fixed:	Small design issue. (start and stop test buttons weren't 
+			aligned properly)
+- Added:	getTime function when the user starts/stops the test. 
+- Changed:	Errormessage will now show the time of failure.
+- Changed:	Errormessage in the list will now show the failed ip
+			instead of only "Ping has failed!".
+
+[0.1.0.4.Dev] (15-09-16)
+- Added:	Settings page. Added for future development.
+- Added:	Function to never clean the list while pinging.
+			Clear Interval can now be set to 0.
+- Added:	Function to save the preformed tests to a textfile.
+- Added:	Savebutton.
+- Changed:	TabIndexes for the buttons and some controls.
+
+[0.1.0.3.Dev] (14-09-16)
+- Changed:	Brackets to improve code readability.
+- Changed:	Removed the old form, moved the new MainForm.
+
+[0.1.0.2.Dev] (12-09-16)
+- Added:	ChangeLog.
+- Added:	Message when resetting values.
+- Added:	Feature that selects the value of the NumericUpDown boxes in the 
+			app for more convenient input and more faulttolerance.
+- Added:	About message.
+- Changed:	Improved the readability of some code, while i found it hard to 
+			see what did what.
+- Changed:	The numbernotation within the list, it is now "1.)" etc. instead 
+			of "1)".
+- Changed:	When you now stop pinging, you automatically select the first 
+			inputbox.
+- Changed:	"Buildversion:" to "Version:" when you click on "About". 
+
+[0.1.0.2.TODO]
+- Add message in the list: "Test started by user!".		#1
+- Fixate the windowsize.								#2
+
+[0.1.0.1] (12-09-16)
+- Created first workable app.
+
+[NOTES]
+VersionNumber.<name> See below
+- Dev: Internal build. Not for external use.
+
+- TODO: This should explain itself.
+
+Version explanation for this app:
+- Major build should ONLY be incremented when changing from 
+	the framework, OS version or when the app is completely
+	redesigned.
+- Minor build number should only be incremented when there
+	are features added.
+	Reverts to 0 with every Major increment.
+- Revision build number should only change when you make a 
+	small fix.
+	Reverts to 0 with every Minor increment.
+- Build number NEEDS to be incremented every build.
+- Example: Version 1.9.2.123 means
+	- 1 Major build.
+	- 9 Added features or big changes.
+	- 2 Patches for bugs.
+	- 123 Total builds in the entire lifetime of the app.
