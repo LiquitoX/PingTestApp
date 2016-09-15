@@ -84,7 +84,9 @@ namespace PingApp {
         }
 
         private void setTimerState(bool state){
-            tmrClearInterval.Enabled = state;
+            if (numClearInterval.Value !=0){
+                tmrClearInterval.Enabled = state;
+            }
             tmrPingInterval.Enabled = state;
         }
 
@@ -113,7 +115,9 @@ namespace PingApp {
                 btnStopTest.Enabled = false;
                 btnStartTest.Enabled = true;
                 setTimerState(false);
-                MessageBox.Show("ERRORCODE: 01\n" + "Ping was not resolved!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("ERRORCODE: 01\n" + "Ping was not resolved!", 
+                    "ERROR", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
                 setState(true);
             }
         }
@@ -138,7 +142,8 @@ namespace PingApp {
         private void btnAbout_Click(object sender, EventArgs e){
             // TODO: Add about form.
             // MessageBox.Show("Function not implemented yet!", "TODO", MessageBoxButtons.OK);
-            MessageBox.Show(string.Format("This app was made by:\nLiquitoX Development\nVersion: {0}", this.ProductVersion));
+            MessageBox.Show(string.Format("This app was made by:\nLiquitoX Development\nVersion: {0}", 
+                this.ProductVersion));
         }
 
         private void btnTest_Click(object sender, EventArgs e){
@@ -160,7 +165,9 @@ namespace PingApp {
             btnStartTest.Enabled = false;
             btnStopTest.Enabled = true;
             tmrPingInterval.Interval = Convert.ToInt32(numPingInterval.Value) * 1000;
-            tmrClearInterval.Interval = Convert.ToInt32(numClearInterval.Value) * 1000;
+            if (numClearInterval.Value != 0){
+                tmrClearInterval.Interval = Convert.ToInt32(numClearInterval.Value) * 1000;
+            }             
             clearListBox();
         }
 
@@ -180,6 +187,7 @@ namespace PingApp {
         }
 
         private void tmrClearInterval_Tick(object sender, EventArgs e){
+            
             clearListBox();
             if (chkClear.Checked){
                 num = 1;

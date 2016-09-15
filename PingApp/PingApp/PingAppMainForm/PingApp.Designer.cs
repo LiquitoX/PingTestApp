@@ -198,11 +198,6 @@
             0,
             0,
             0});
-            this.numClearInterval.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.numClearInterval.Name = "numClearInterval";
             this.numClearInterval.Size = new System.Drawing.Size(115, 20);
             this.numClearInterval.TabIndex = 6;
