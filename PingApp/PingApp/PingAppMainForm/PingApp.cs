@@ -107,10 +107,12 @@ namespace PingApp {
                 btnStopTest.Enabled = false;
                 btnStartTest.Enabled = true;
                 setTimerState(false);
-                MessageBox.Show(getTime() + "\nERRORCODE: 01\n" + "Ping was not resolved!", 
+                MessageBox.Show(getTime() + "\nERRORCODE: 01\n" + "Ping was not resolved!\n\n" +
+                    "You will be prompted to save a log after clicking 'OK'.", 
                     "ERROR", MessageBoxButtons.OK, 
                     MessageBoxIcon.Error);
                 setState(true);
+                savePingList(listPing);
             }
         }
 
@@ -127,13 +129,14 @@ namespace PingApp {
         /// </summary>
         /// <param name="listToSave"></param>
         private void savePingList(ListBox listToSave) {
+            listToSave.Items.Insert(0,"FILE SAVED ON: " + getTime());
             var saveFile = new SaveFileDialog();
             saveFile.Filter = "Text (*.txt)|*.txt";
             if (saveFile.ShowDialog() == System.Windows.Forms.DialogResult.OK){
                 using (var sw = new StreamWriter(saveFile.FileName, false))
                     foreach (var item in listToSave.Items)
                         sw.Write(item.ToString() + Environment.NewLine);
-                MessageBox.Show("Success");
+                MessageBox.Show("File has been saved.");
             }
         }
 
